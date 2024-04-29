@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <h1>Cadastro de veículos</h1>
+    <div class="inputs">
+        <div class="col-3">
+            <div class="mb-1">
+                Nome do carro
+            </div>
+            <input type="text" class="form-control" name="nomeCarro" [(ngModel)]="carro.nomeCarro">
+        </div>
+
+        <div class="col-3">
+            <div class="mb-1">
+                Ano de fabricação
+            </div>
+            <input type="text" class="form-control" name="anoFabricacaoCarro" [(ngModel)]="carro.anoFabricacaoCarro">
+        </div>
+
+        <div class="col-3">
+            <div class="mb-1">
+                Ano do modelo
+            </div>
+            <input type="text" class="form-control" name="anoModeloCarro" [(ngModel)]="carro.anoModeloCarro">
+        </div>
+
+        <div class="col-3">
+            <div class="mb-1">
+                Modelo do carro
+            </div>
+            <input type="text" class="form-control" name="modeloCarro" [(ngModel)]="carro.modeloCarro">
+        </div>
+
+        <div class="col-3">
+            <div class="mb-1">
+                Marca
+            </div>
+            <select class="col-5" name="marca" [(ngModel)]="carro.marca">
+                <option *ngFor="let marca of marcas$ | async" [ngValue]="marca">{{ marca.marca }}</option>
+            </select>
+        </div>
+
+        <div class="col-3">
+            <div class="mb-1">
+                Cores
+            </div>
+            <select class="col-5" name="cores" [(ngModel)]="corSelecionada">
+                <option *ngFor="let cor of cores$ | async" [ngValue]="cor">{{ cor.nomecor }}</option>
+            </select>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-primary" (click)="cadastrarCarro()">
+                Cadastrar
+            </button>
+        </div>
+
+        <div class="col-3">
+            <a [routerLink]="['/lista-carros']" [queryParamsHandling]="'preserve'">
+                <button type="submit" class="btn btn-warning">Ver registros</button>
+            </a>
+        </div>
+
+    </div>
+
+</div>
